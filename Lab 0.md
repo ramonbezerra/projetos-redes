@@ -68,7 +68,7 @@ A melhor maneira de aprender sobre qualquer novo software é experimentá-lo! Va
 
 É isso aí! Completamos nosso primeiro lab.
 
-## Projeto prático 1
+## Projeto prático 0
 
 Para executar esse projeto, você pode utilizar o mesmo endereço da página de parabéns do lab, ou outra página. Para facilitar a execução, não abra outro recurso com acesso à Internet simultaneamente.
 
