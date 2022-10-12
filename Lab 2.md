@@ -24,7 +24,7 @@ Além de usar `nslookup` para consultar um registro DNS “Type=A”, também po
 
 No exemplo da Figura 2, invocamos o `nslookup` com a opção “-type=NS” e o domínio “nyu.edu”. Isso faz com que o `nslookup` envie uma consulta para um registro do tipo NS ao servidor DNS local padrão. Em palavras, a consulta está dizendo: “por favor, envie-me os nomes de host do DNS autoritativo para nyu.edu”. (Quando a opção –type não é usada, o `nslookup` usa o padrão, que é consultar os registros do tipo A.) ​​A resposta, exibida na captura de tela acima, indica primeiro o servidor DNS que está fornecendo a resposta (que é o local padrão Servidor DNS UMass com endereço 128.119.240.1) juntamente com três servidores de nomes DNS da NYU. Cada um desses servidores é de fato um servidor DNS autoritativo para os hosts no campus da NYU. No entanto, `nslookup` também indica que a resposta é “não autoritativa”, o que significa que essa resposta veio do cache de algum servidor e não de um servidor DNS autoritativo da NYU. Por fim, a resposta também inclui os endereços IP dos servidores DNS autorizados da NYU. (Mesmo que a consulta tipo-NS gerada pelo `nslookup` não tenha solicitado explicitamente os endereços IP, o servidor DNS local os retornou “de graça” e o `nslookup` exibe o resultado.)
 
-O `nslookup` tem várias opções adicionais além de “-type=NS” que você pode querer explorar. Aqui está um site com capturas de tela de dez usos populares do `nslookup`: https://www.cloudns.net/blog/10-most-used-nslookup-commands/ e aqui estão as “páginas de manual” do `nslookup`: https://linux.die.net/man/1/nslookup.
+O `nslookup` tem várias opções adicionais além de “-type=NS” que você pode querer explorar. Aqui está um site com capturas de tela de dez usos populares do `nslookup`: <https://www.cloudns.net/blog/10-most-used-nslookup-commands/> e aqui estão as “páginas de manual” do `nslookup`: <https://linux.die.net/man/1/nslookup>.
 
 Por fim, às vezes podemos estar interessados em descobrir o nome do host associado a um determinado endereço IP, ou seja, o inverso da pesquisa mostrada na Figura 1 (onde o nome do host era conhecido/especificado e o endereço IP do host foi retornado). O `nslookup` também pode ser usado para realizar a chamada “pesquisa reversa de DNS”. Na Figura 3, por exemplo, especificamos um endereço IP como o argumento `nslookup` (128.119.245.12 neste exemplo) e `nslookup` retorna o nome do host com esse endereço (gaia.cs.umass.edu neste exemplo):
 
@@ -47,19 +47,19 @@ A maioria dos hosts (por exemplo, seu computador pessoal) mantém um cache de re
 
 Você também pode limpar explicitamente os registros em seu cache DNS. Não há mal em fazê-lo - significa apenas que seu computador precisará invocar o serviço DNS distribuído na próxima vez que precisar usar o serviço de resolução de nomes DNS, pois não encontrará registros no cache. Em um computador Mac, você pode digitar o seguinte comando em uma janela de terminal para limpar o cache do resolvedor de DNS:
 
-```
+```terminal
 sudo killall -HUP mDNSResponder
 ```
 
 No Windows você pode digitar na linha de comando:
 
-```
+```terminal
 ipconfig /flushdns
 ```
 
 No sistema Linux, basta digitar no terminal:
 
-```
+```terminal
 sudo systemd-resolve --flush-caches
 ```
 
@@ -71,13 +71,13 @@ Agora que estamos familiarizados com o `nslookup` e com a limpeza do cache do re
 - Abra o navegador da Web e limpe o cache do navegador.
 - Abra o Wireshark e digite `ip.addr == <your_IP_address>` no filtro de exibição, onde `<your_IP_address>` é o endereço IPv4 do seu computador[^1]. Com este filtro, o Wireshark exibirá apenas os pacotes que se originam ou são destinados ao seu host.
 - Inicie a captura de pacotes no Wireshark.
-- Com seu navegador, visite a página da Web: http://gaia.cs.umass.edu/kurose_ross/
+- Com seu navegador, visite a página da Web: <http://gaia.cs.umass.edu/kurose_ross/>
 - Pare a captura de pacotes.
 
 Se você não conseguir executar o Wireshark em uma conexão de rede ativa, poderá baixar um arquivo de rastreamento de pacote que foi capturado seguindo as etapas acima em um dos computadores do autor[^2]. Responda as seguintes questões.
 
 [^1]: Se você não tiver certeza de como encontrar o endereço IP do seu computador, poderá pesquisar na Web artigos sobre seu sistema operacional. As informações do Windows 10 estão [aqui](https://support.microsoft.com/en-us/windows/find-your-ip-address-f21a9bbc-c582-55cd-35e0-73431160a1b9); As informações do Mac estão [aqui](https://www.hellotech.com/guide/for/how-to-find-ip-address-on-mac); Informações do Linux estão [aqui](https://www.linuxtrainingacademy.com/determine-public-ip-address-command-line-curl/).
-[^2]: Você pode baixar o arquivo zip http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces-8.1.zip e extrair o arquivo de rastreamento dns-wireshark-trace1-1. Esses arquivos de rastreamento podem ser usados para responder a essas perguntas do laboratório do Wireshark sem realmente capturar pacotes por conta própria. Cada rastreamento foi feito usando o Wireshark rodando em um dos computadores do autor, enquanto realizava as etapas indicadas no laboratório do Wireshark. Depois de baixar um arquivo de rastreamento, você pode carregá-lo no Wireshark e visualizar o rastreamento usando o menu suspenso Arquivo, escolhendo Abrir e selecionando o nome do arquivo de rastreamento.
+[^2]: Você pode baixar o arquivo zip <http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces-8.1.zip> e extrair o arquivo de rastreamento dns-wireshark-trace1-1. Esses arquivos de rastreamento podem ser usados para responder a essas perguntas do laboratório do Wireshark sem realmente capturar pacotes por conta própria. Cada rastreamento foi feito usando o Wireshark rodando em um dos computadores do autor, enquanto realizava as etapas indicadas no laboratório do Wireshark. Depois de baixar um arquivo de rastreamento, você pode carregá-lo no Wireshark e visualizar o rastreamento usando o menu suspenso Arquivo, escolhendo Abrir e selecionando o nome do arquivo de rastreamento.
 
 5. Localize a primeira mensagem de consulta DNS resolvendo o nome gaia.cs.umass.edu. Qual é o packet number[^3] no rastreamento da mensagem de consulta DNS? Esta mensagem de consulta é enviada por UDP ou TCP?
 6. Agora localize a resposta DNS correspondente à consulta DNS inicial. Qual é o número do pacote no rastreamento da mensagem de resposta do DNS? Esta mensagem de resposta é recebida via UDP ou TCP?
@@ -85,7 +85,7 @@ Se você não conseguir executar o Wireshark em uma conexão de rede ativa, pode
 8. Para qual endereço IP a mensagem de consulta DNS é enviada?
 9. Examine a mensagem de consulta DNS. Quantas “perguntas” esta mensagem DNS contém? Quantas respostas “respostas” contém?
 10. Examine a mensagem de resposta do DNS para a mensagem de consulta inicial. Quantas “perguntas” esta mensagem DNS contém? Quantas respostas “respostas” contém?
-11. A página da web para o arquivo base http://gaia.cs.umass.edu/kurose_ross/ faz referência ao objeto imagem http://gaia.cs.umass.edu/kurose_ross/header_graphic_book_8E_2.jpg , que, como a base webpage, está em gaia.cs.umass.edu. Qual é o número do pacote no rastreamento para a solicitação HTTP GET inicial para o arquivo base http://gaia.cs.umass.edu/kurose_ross/? Qual é o número do pacote no rastreamento da consulta DNS feita para resolver gaia.cs.umass.edu para que essa solicitação HTTP inicial possa ser enviada para o endereço IP gaia.cs.umass.edu? Qual é o número do pacote no rastreamento da resposta DNS recebida? Qual é o número do pacote no rastreamento da solicitação HTTP GET para o objeto de imagem http://gaia.cs.umass.edu/kurose_ross/header_graphic_book_8E2.jpg? Qual é o número do pacote na consulta DNS feita para resolver gaia.cs.umass.edu para que essa segunda solicitação HTTP possa ser enviada para o endereço IP gaia.cs.umass.edu? Discuta como o cache de DNS afeta a resposta a esta última pergunta.
+11. A página da web para o arquivo base <http://gaia.cs.umass.edu/kurose_ross/> faz referência ao objeto imagem <http://gaia.cs.umass.edu/kurose_ross/header_graphic_book_8E_2.jpg> , que, como a base webpage, está em gaia.cs.umass.edu. Qual é o número do pacote no rastreamento para a solicitação HTTP GET inicial para o arquivo base <http://gaia.cs.umass.edu/kurose_ross/>? Qual é o número do pacote no rastreamento da consulta DNS feita para resolver gaia.cs.umass.edu para que essa solicitação HTTP inicial possa ser enviada para o endereço IP gaia.cs.umass.edu? Qual é o número do pacote no rastreamento da resposta DNS recebida? Qual é o número do pacote no rastreamento da solicitação HTTP GET para o objeto de imagem <http://gaia.cs.umass.edu/kurose_ross/header_graphic_book_8E2.jpg>? Qual é o número do pacote na consulta DNS feita para resolver gaia.cs.umass.edu para que essa segunda solicitação HTTP possa ser enviada para o endereço IP gaia.cs.umass.edu? Discuta como o cache de DNS afeta a resposta a esta última pergunta.
 
 Agora vamos brincar com `nslookup`[^4].
 
@@ -107,7 +107,7 @@ Você deve obter um rastreamento parecido com o seguinte em sua janela do Wiresh
 
 Por último, vamos usar o `nslookup` para emitir um comando que retornará um registro DNS tipo NS, digite o seguinte comando[^5] para resolver as questões a seguir:
 
-```
+```terminal
 nslookup –type=NS umass.edu
 ```
 
@@ -116,4 +116,3 @@ nslookup –type=NS umass.edu
 16. Para qual endereço IP a mensagem de consulta DNS é enviada? Este é o endereço IP do seu servidor DNS local padrão?
 17. Examine a mensagem de consulta DNS. Quantas perguntas tem a consulta? A mensagem de consulta contém alguma “resposta”?
 18. Examine a mensagem de resposta do DNS. Quantas respostas tem a resposta? Quais informações estão contidas nas respostas? Quantos registros de recursos adicionais são retornados? Quais informações adicionais estão incluídas nesses registros de recursos adicionais?
-
