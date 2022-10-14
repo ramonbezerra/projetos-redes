@@ -34,10 +34,10 @@ Agora que fornecemos uma visão geral do `nslookup`, é hora de você testá-lo 
 
 ![Figura 4: Usando o comando `nslookup` para encontrar o endereço IP de www.iitb.ac.in e os nomes dos servidores de nomes autoritativos do domínio iitb.ac.in](image_6.png)
 
-1. Execute `nslookup` para obter o endereço IP do servidor web do Indian Institute of Technology em Bombaim, Índia: www.iitb.ac.in. Qual é o endereço IP de www.iitb.ac.in
+1. Execute `nslookup` para obter o endereço IP do servidor web do Indian Institute of Technology em Bombaim, Índia: www.iitb.ac.in. Qual é o endereço IP de www.iitb.ac.in?
 2. Qual é o endereço IP do servidor DNS que forneceu a resposta ao seu comando `nslookup` na pergunta 1 acima?
 3. A resposta ao seu comando `nslookup` na pergunta 1 acima veio de um servidor autoritativo ou não autoritativo?
-4. Use o comando `nslookup` para determinar o nome do servidor de nomes autoritativo para o domínio iit.ac.in. Qual é esse nome? (Se houver mais de um servidor autoritativo, qual é o nome do primeiro servidor autoritativo retornado pelo `nslookup`)? Se você tivesse que encontrar o endereço IP desse servidor de nomes autoritário, como você faria isso?
+4. Use o comando `nslookup` para determinar o nome do servidor de nomes autoritativo para o domínio iitb.ac.in. Qual é esse nome? (Se houver mais de um servidor autoritativo, qual é o nome do primeiro servidor autoritativo retornado pelo `nslookup`)? Se você tivesse que encontrar o endereço IP desse servidor de nomes autoritário, como você faria isso?
 
 ## O cache DNS no seu computador
 
