@@ -39,7 +39,7 @@ Vamos agora “sujar as mãos” olhando alguns segmentos TCP.
 
 ![Figura 4: Segmentos TCP envolvidos no envio da mensagem HTTP POST (incluindo o arquivo alice.txt) para gaia.cs.umass.edu](tcp_image_4.png)
 
-Responda às perguntas a seguir, a partir de seu próprio rastreamento ao vivo ou abrindo o arquivo de pacote capturado pelo Wireshark tcp-wireshark-trace1-1 em <http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces-8.1>.
+Responda às perguntas a seguir, a partir de seu próprio rastreamento ao vivo ou abrindo o arquivo de pacote capturado pelo Wireshark tcp-wireshark-trace1-1 em <http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces-8.1.zip>.
 
 1. Qual é o endereço IP e o número da porta TCP usados pelo computador cliente (origem) que está transferindo o arquivo alice.txt para gaia.cs.umass.edu? Para responder a essa pergunta, provavelmente é mais fácil selecionar uma mensagem HTTP e explorar os detalhes do pacote TCP usado para transportar essa mensagem HTTP, usando os “detalhes da janela de cabeçalho do pacote selecionado” (consulte a Figura 2 em “Introdução à Wireshark” Lab se você não tiver certeza sobre as janelas do Wireshark).
 2. Qual é o endereço IP de gaia.cs.umass.edu? Em qual número de porta ele está enviando e recebendo segmentos TCP para esta conexão?
