@@ -91,6 +91,6 @@ Responda a seguinte pergunta para os segmentos TCP no rastreamento de pacote tcp
 
 12. Use a ferramenta de plotagem Time-Sequence-Graph(Stevens) para visualizar o gráfico de número de sequência versus tempo dos segmentos que estão sendo enviados do cliente para o servidor gaia.cs.umass.edu. Considere as "frotas" de pacotes enviados em torno de t = 0,025, t = 0,053, t = 0,082 e t = 0,1. Comente se parece que o TCP está em sua fase de início lento, fase de prevenção de congestionamento ou alguma outra fase. A Figura 6 mostra uma visão ligeiramente diferente desses dados.
 13. Essas “frotas” de segmentos parecem ter alguma periodicidade. O que você pode dizer sobre o período?
-14. Responda a cada uma das duas perguntas acima para o rastreamento que você coletou quando transferiu um arquivo do seu computador para gaia.cs.umass.edu.
+Responda a cada uma das duas perguntas acima para o rastreamento que você coletou quando transferiu um arquivo do seu computador para gaia.cs.umass.edu.
 
 ![Figura 6: Outra visão dos mesmos dados da Figura 5.](tcp_image_6.png)
